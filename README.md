@@ -19,17 +19,19 @@
 ## 파이프라인 한눈에 보기
 
 ```mermaid
-flowchart LR
-  A[PDF] --> B[Upstage Parse (HTML)]
-  B --> C[Cleaning: 빈페이지/헤더 제거]
-  C --> D[Semantic Chunking (BGE-m3)]
-  D --> E[Smart Diet: 긴 HTML만 Markdown]
-  E --> F1[Dense: Qdrant (BGE-m3)]
-  E --> F2[Sparse: BM25]
-  F1 --> G[Hybrid Ensemble]
-  F2 --> G
-  G --> H[Reranker (bge-reranker-v2-m3)]
-  H --> I[LLM 생성 (EXAONE 3.5 7.8B, 4bit)]
+flowchart TB
+A["PDF"] --> B["Upstage Parse (HTML)"]
+B --> C["Cleaning: 빈페이지/헤더 제거"]
+C --> D["Semantic Chunking (BGE-m3)"]
+D --> E["Smart Diet: 긴 HTML만 Markdown"]
+
+E --> F1["Dense: Qdrant (BGE-m3)"]
+E --> F2["Sparse: BM25"]
+F1 --> G["Hybrid Ensemble"]
+F2 --> G
+
+G --> H["Reranker (bge-reranker-v2-m3)"]
+H --> I["LLM 생성 (EXAONE 3.5 7.8B, 4bit)"]
 ```
 
 ---
