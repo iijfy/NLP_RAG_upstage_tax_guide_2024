@@ -1,3 +1,5 @@
+![UI 그라디오](example.png)
+
 # 📝 2024 연말정산 안내문 기반 RAG Q&A (Korean Tax RAG)
 
 국세청 ‘2024년 귀속 연말정산 신고 안내’ PDF를 근거로 질문에 답하는 RAG(Retrieval-Augmented Generation) 시스템입니다.  
